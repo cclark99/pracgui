@@ -13,4 +13,7 @@ public:
 
 private:
     Ui::employguiClass ui;
+
+private slots:
+    void on_addEmployeeButton_clicked();
 };
