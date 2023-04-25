@@ -95,12 +95,15 @@
   <ItemGroup>
     <QtRcc Include="employgui.qrc" />
     <QtUic Include="addemployee.ui" />
+    <QtUic Include="addsale.ui" />
     <QtUic Include="employgui.ui" />
     <QtMoc Include="employgui.h" />
     <ClCompile Include="addemployee.cpp" />
+    <ClCompile Include="addsale.cpp" />
     <ClCompile Include="employgui.cpp" />
     <ClCompile Include="main.cpp" />
     <QtMoc Include="addemployee.h" />
+    <QtMoc Include="addsale.h" />
     <ClInclude Include="stdafx.h" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">Create</PrecompiledHeader>

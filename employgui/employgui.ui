@@ -24,7 +24,7 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QListWidget" name="employeList"/>
+     <widget class="QListWidget" name="employeeList"/>
     </item>
     <item>
      <layout class="QGridLayout" name="gridLayout_2">
@@ -60,7 +60,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="nameLabel">
    <property name="geometry">
     <rect>
      <x>260</x>

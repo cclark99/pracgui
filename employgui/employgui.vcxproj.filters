@@ -49,14 +49,23 @@
     <ClCompile Include="addemployee.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="addsale.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="addemployee.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="addsale.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="addemployee.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="addsale.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

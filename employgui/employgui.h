@@ -16,4 +16,7 @@ private:
 
 private slots:
     void on_addEmployeeButton_clicked();
+    void on_employeeList_currentItemChanged();
+    void on_removeEmployeeButton_clicked();
+    void on_addSaleButton_clicked();
 };
