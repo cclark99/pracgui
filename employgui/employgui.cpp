@@ -57,10 +57,10 @@ void employgui::on_addSaleButton_clicked()
 {
     addsale dialog(this);
     if (dialog.exec()) {
-        QString name = dialog.nameEdit->text();
+        QString sale = dialog.saleEdit->text();
 
-        if (!name.isEmpty()) {
-            QListWidgetItem* item = new QListWidgetItem(name, ui.employeeList);
+        if (!sale.isEmpty()) {
+
             item->setData(Qt::UserRole, name);
             ui.employeeList->setCurrentItem(item);
         }
