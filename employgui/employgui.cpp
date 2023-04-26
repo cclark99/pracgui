@@ -32,9 +32,16 @@ void employgui::on_employeeList_currentItemChanged()
 
     if (curItem) {
         ui.nameLabel->setText(curItem->text());
+
+        auto text = ui.saleLabel;
+        if (text) {
+            ui.saleLabel->setText(curItem->data(Qt::UserRole).toString());
+        }
     }
-    else
+    else {
         ui.nameLabel->clear();
+        ui.saleLabel->clear();
+    } 
 }
 
 void employgui::on_removeEmployeeButton_clicked()
@@ -55,14 +62,19 @@ void employgui::on_removeEmployeeButton_clicked()
 
 void employgui::on_addSaleButton_clicked()
 {
+    QListWidgetItem* curItem = ui.employeeList->currentItem();
+
+    if (curItem == NULL)
+        return;
+
     addsale dialog(this);
     if (dialog.exec()) {
         QString sale = dialog.saleEdit->text();
 
-        if (!sale.isEmpty()) {
+        curItem->setData(Qt::UserRole, sale);
 
-            item->setData(Qt::UserRole, name);
-            ui.employeeList->setCurrentItem(item);
+        if (!sale.isEmpty()) {
+            ui.saleLabel->setText(sale);
         }
     }
 }
