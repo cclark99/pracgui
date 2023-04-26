@@ -20,7 +20,6 @@ void employgui::on_addEmployeeButton_clicked()
 
         if (!name.isEmpty()) {
             QListWidgetItem* item = new QListWidgetItem(name, ui.employeeList);
-            item->setData(Qt::UserRole, name);
             ui.employeeList->setCurrentItem(item);
         }
     }
@@ -35,7 +34,7 @@ void employgui::on_employeeList_currentItemChanged()
 
         auto text = ui.saleLabel;
         if (text) {
-            ui.saleLabel->setText(curItem->data(Qt::UserRole).toString());
+            ui.saleLabel->setText(curItem->data(Qt::UserRole + 1).toString());
         }
     }
     else {
@@ -47,7 +46,6 @@ void employgui::on_employeeList_currentItemChanged()
 void employgui::on_removeEmployeeButton_clicked()
 {
     QListWidgetItem* curItem = ui.employeeList->currentItem();
-
     if (curItem) {
         int row = ui.employeeList->row(curItem);
         ui.employeeList->takeItem(row);
@@ -63,15 +61,15 @@ void employgui::on_removeEmployeeButton_clicked()
 void employgui::on_addSaleButton_clicked()
 {
     QListWidgetItem* curItem = ui.employeeList->currentItem();
-
     if (curItem == NULL)
         return;
 
     addsale dialog(this);
     if (dialog.exec()) {
-        QString sale = dialog.saleEdit->text();
+        QString sale = ui.saleLabel->text() 
+                       + dialog.saleEdit->text() + " ";
 
-        curItem->setData(Qt::UserRole, sale);
+        curItem->setData(Qt::UserRole + 1, sale);
 
         if (!sale.isEmpty()) {
             ui.saleLabel->setText(sale);
