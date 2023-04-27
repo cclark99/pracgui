@@ -35,11 +35,13 @@ void employgui::on_employeeList_currentItemChanged()
         auto text = ui.saleLabel;
         if (text) {
             ui.saleLabel->setText(curItem->data(Qt::UserRole + 1).toString());
+            ui.totalLabel->setText(curItem->data(Qt::UserRole + 2).toString());
         }
     }
     else {
         ui.nameLabel->clear();
         ui.saleLabel->clear();
+        ui.totalLabel->clear();
     } 
 }
 
@@ -68,11 +70,15 @@ void employgui::on_addSaleButton_clicked()
     if (dialog.exec()) {
         QString sale = ui.saleLabel->text() 
                        + dialog.saleEdit->text() + " ";
+        QString total = QString::number(ui.totalLabel->text().toDouble()
+                       + dialog.saleEdit->text().toDouble());
 
         curItem->setData(Qt::UserRole + 1, sale);
+        curItem->setData(Qt::UserRole + 2, total);
 
         if (!sale.isEmpty()) {
             ui.saleLabel->setText(sale);
+            ui.totalLabel->setText(total);
         }
     }
 }
